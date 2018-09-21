@@ -30,6 +30,19 @@ public class PageController {
 			@RequestParam(value = "b", required = false, defaultValue = "0") int b, Model model) {
 		model.addAttribute("a", a);
 		model.addAttribute("b", b);
+		String m = "m";
+		String h = "h";
+		String hasil = "";
+		
+		for (int i = 0 ; i < b ; i++) {
+			hasil += h;
+			for(int j = 0 ; j < a  ; j++) {
+				hasil += m;
+			}
+			hasil += " ";
+		}
+			
+		model.addAttribute("hm", hasil);
 		
 		
 		return "generator";

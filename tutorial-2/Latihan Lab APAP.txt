@@ -1,0 +1,106 @@
+Aji Wuryanto
+1606894452
+APAP-B
+
+Latihan Project Viral
+1. Ganti baris @RequestMapping(“/viral”) menjadi @RequestMapping(“/viral2jari”).
+Kemudian run kembali.
+a. Apakah terjadi compile error?
+ -tidak
+
+b. Coba akses localhost:8080/viral, berikan alasan dan jelaskan apa yang terjadi.
+ -jika mengakses ke localhost:8080/viral maka page dengan whitelabel akan ditampilkan
+
+c. Apakah Kegunaan @RequestMapping(“/viral”)
+ -untuk mengatur routing link nya, agar linknya menjadi localhost:8080/{yang ada di request mapping nya}
+Kembalikan menjadi @RequestMapping(“/viral”)
+
+2. Ganti nama method index() menjadi nama method viral()
+a. Apakah terjadi compile error?
+ -tidak
+
+b. Coba akses localhost:8080/viral, berikan alasan dan jelaskan apa yang terjadi.
+ -yang terjadi adalah tetap masuk ke page /viral. hal ini dikarenakan index() hanyalah nama fungsi
+Kembalikan menjadi index()
+
+3. Ganti string return type menjadi menjadi return “viral2jari”
+a. Apakah terjadi compile error?
+ -tidak
+
+b. Coba akses localhost:8080/viral, berikan alasan dan jelaskan apa yang terjadi.
+ -yang terjadi adalah whitelabel error page, hal ini terjadi karena kembalian tidak sama dengan mapping link nya {/viral}
+
+c. Apakah kegunaan return type pada method controller tersebut?
+ -kegunaan nya memberikan template kepada page untuk dikembalikan
+Kembalikan return type menjadi “viral”
+
+================================================================
+
+Latihan​ ​Request​ ​Parameter
+Setiap ada perubahan pada kode, selalu usahakan run ulang
+1. Mengapa tulisan “In My feeling” pada thymeleaf challenge tidak pernah muncul di
+browser?
+ -dikarenakan terdapat th:text yang memiliki priority yang lebih tinggi untuk di render
+
+2. Ubah nilai anotasi Request Mapping “/challenge” menjadi “/viral/challenge”.
+Deskripsikan hasil pada browser dan kembalikan ke bentuk sebelumnya!
+ -terjadi whitelabel Error page yang disebabkan tidak adanya parameter 'name' bertipe string
+
+3. Akses localhost:8080/challenge.
+a. Deskripsikan hasilnya
+ -terjadi whitelabel error dikarenakan tidak ada message yang tersedia
+
+b. Ubah methodnya menjadi seperti di bawah ini, deskripsikan lalu kembalikan
+ke bentuk awal!
+	[	
+	@RequestMapping("/challenge")
+	public String challenge(@RequestParam(value="name", required = false) String name, Model model) {
+		model.addAttribute("name",name);
+		return "challenge";
+	}
+	]
+ -whitelabel error tidak terjadi dikarenakan parameter nya bukan keharusan, ia akan mengembalikan null dikarenakan tidak ada parameter yang diberikan
+
+c. Ubah methodnya menjadi seperti di bawah ini, deskripsikan lalu kembalikan
+ke bentuk awal!
+	[	
+	@RequestMapping("/challenge")
+	public String challenge(@RequestParam(value="name", required = false, defaultValue = "Kiki") String name, Model model) {
+		model.addAttribute("name",name);
+		return "challenge";
+	}
+	]
+ -whitelabel error tidak terjadi dikarenakan parameter nya bukan keharusan, ia akan mengembalikan Kiki dikarenakan defaultValue yang berisi Kiki telah diberikan. dengan cara ini meskipun parameter bernilai null tetap akan ada nama yang di render
+
+===================================================================
+
+Latihan​ ​Path Variable
+Setiap ada perubahan pada kode, selalu usahakan run ulang
+1. Akses localhost:8080/challenge/
+Apakah hasil dari halaman tersebut?
+ -yang terjadi adalah whitelabel error dikarenakan tidak ada message yang tersedia
+
+2. Ubah method challengePath menjadi seperti berikut
+Akses localhost:8080/challenge/
+Apakah hasil dari halaman tersebut?
+
+	[
+	@RequestMapping(value={"/challenge","challenge/{name}"})
+	public String challengePath(@PathVariable Optional<String> name, Model model) {
+		if(name.isPresent()){
+			model.addAttribute("name",name.get());
+		}else{
+			model.addAttribute("name","KB");
+		}
+		return "challenge";
+	}
+	]
+ -whitelabel error page yang dikarenakan ambigous handler method untuk path http 'http://localhost:8080/challenge/'	
+
+3. Akses localhost:8080/challenge/kiki
+Apakah hasil dari halaman tersebut?
+ -sebuah text yaitu 
+ kiki do you love me? 
+
+ Are you riding?
+
