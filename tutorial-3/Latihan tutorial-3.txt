@@ -1,0 +1,36 @@
+localhost:8080/pilot/add?id=1&licenseNumber=1234&name=Jono&flyHour=20
+Pertanyaan 1 : apakah hasilnya? Jika error , tuliskan penjelasan Anda.
+
+ -Tidak terjadi error
+
+localhost:8080/pilot/add?id=1&licenseNumber=1234&name=Jono
+Pertanyaan 2: apakah hasilnya? Jika error , tuliskan penjelasan Anda
+
+ -Terjadi error, hal ini dikarenakan parameter flyHour nya tidak diisi nilai dan di controller memiliki required = true untuk parameter flyHour
+
+localhost:8080/pilot/add?id=1&licenseNumber=1234&name=Jono&flyHour=20
+localhost:8080/pilot/view?licenseNumber=1234
+Pertanyaan 3 : apakah data Pilot tersebut muncul? Jika tidak, mengapa?
+
+-Data pilot tersebut muncul
+
+localhost:8080/pilot/view?licenseNumber=1234
+Pertanyaan 4 : apakah data Pilot tersebut muncul? Jika tidak, mengapa?
+
+-Terjadi error, dikarenakan database masih kosong. tiap kali program di run maka database akan direset
+
+Coba tambahkan data Pilot lainnya dengan licenseNumber yang berbeda.
+
+-tidak ada error
+
+localhost:8080/pilot/add?id=1&licenseNumber=1234&name=Jono&flyHour=20
+localhost:8080/pilot/viewall
+Pertanyaan 5 : apakah data Pilot tersebut muncul?
+
+-data pilot tersebut muncul
+
+Coba tambahkan data Pilot lainnya dengan NPM yang berbeda, lalu buka
+localhost:8080/pilot/viewall
+Pertanyaan 6 : Apakah semua data Pilot muncul?
+
+-Data semua pilot muncul
