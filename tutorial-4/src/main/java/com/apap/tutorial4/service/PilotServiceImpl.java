@@ -26,11 +26,5 @@ public class PilotServiceImpl implements PilotService {
 		pilotDb.save(pilot);
 	}
 
-	@Override
-	public void updatePilot(PilotModel pilot) {
-		// TODO Auto-generated method stub
-		pilotDb.save(pilot);
-	}
-
 
 }

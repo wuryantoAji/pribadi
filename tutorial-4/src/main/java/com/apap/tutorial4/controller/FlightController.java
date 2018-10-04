@@ -38,7 +38,22 @@ public class FlightController {
 	}
 	
 	
+	@RequestMapping(value = "/flight/update/{licenseNumber}/{flightNumber}", method=RequestMethod.GET)
+	private String updateFlight(@PathVariable(value="licenseNumber") String licenseNumber,
+								@PathVariable(value="flightNumber") String flightNumber,
+								Model model) {
+		FlightModel flight = flightService.getFlightByFlightNumber(flightNumber);
+		PilotModel pilot = pilotService.getPilotDetailByLicenseNumber(licenseNumber);
+		flight.setPilot(pilot);
+		model.addAttribute("flight", flight);
+		return "updateFlight";
+	}
 	
+	@RequestMapping(value = "/flight/update",method = RequestMethod.POST)
+	private String updateFlightSubmit(@ModelAttribute FlightModel flight) {
+		flightService.addFlight(flight);
+		return "update";
+	}
 	
 	
 }

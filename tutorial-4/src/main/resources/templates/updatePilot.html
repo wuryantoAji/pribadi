@@ -7,18 +7,18 @@
 
 <body>
 	<h3>Update Pilot</h3>
-	<form th:action="@{/pilot/update}" th:object="${pilot}" method = "POST">
-		<input type="hidden" th:field="*{pilot}"/>
-		Pilot Name: <br>
-		<input type="text" name="pilotName"/>
-		<br>
-		
-		Fly Hour: <br>
-		<input type="text" name="flyhour" />
-		<br>
-		
-	</form>
 	
+	<form th:action="@{/pilot/update}" th:object="${pilot}" method = "POST">
+		<input type="hidden" th:field="*{licenseNumber}"/>
+		<input type="hidden" th:field="*{id}"/>
+		Name : <br>
+		<input type="text" name="name"/>
+		<br>
+		Fly Hour: <br>
+		<input type="number" name="flyHour"/>
+		<br><br>
+		<button type="submit">Submit</button>
+	</form>
 	
 </body>
 </html>

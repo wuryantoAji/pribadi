@@ -4,4 +4,6 @@ import com.apap.tutorial4.model.FlightModel;
 
 public interface FlightService {
 	void addFlight (FlightModel flight);
+	
+	FlightModel getFlightByFlightNumber(String flightNumber);
 }

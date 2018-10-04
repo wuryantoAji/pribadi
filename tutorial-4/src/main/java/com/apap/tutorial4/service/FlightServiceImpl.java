@@ -17,6 +17,12 @@ public class FlightServiceImpl implements FlightService  {
 	public void addFlight(FlightModel flight) {
 		flightDb.save(flight);
 	}
+
+	@Override
+	public FlightModel getFlightByFlightNumber(String flightNumber) {
+		// TODO Auto-generated method stub
+		return flightDb.findByFlightNumber(flightNumber);
+	}
 	
 	
 }
