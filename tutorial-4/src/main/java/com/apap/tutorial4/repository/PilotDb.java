@@ -8,4 +8,5 @@ import com.apap.tutorial4.model.PilotModel;
 @Repository
 public interface PilotDb extends JpaRepository<PilotModel, Long> {
 	PilotModel findByLicenseNumber(String licenseNumber);
+	
 }

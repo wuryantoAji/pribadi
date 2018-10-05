@@ -11,6 +11,7 @@
 	<form th:action="@{/flight/update}" th:object="${flight}" method = "POST">
 		<input type="hidden" th:field="*{pilot}"/>
 		<input type="hidden" th:field="*{flightNumber}"/>
+		<input type="hidden" th:field="*{id}"/>
 		Origin: <br>
 		<input type="text" name="origin" />
 		<br>

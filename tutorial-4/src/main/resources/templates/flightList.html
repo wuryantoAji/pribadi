@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>Flight Detail</title>
+	</head>
+	<body>
+			<h3 th:text="'nomor penerbangan ' + ${penerbangan.flightNumber}"></h3>
+			<h3 th:text="'origin ' +${penerbangan.origin}"></h3>
+			<h3 th:text="'destination ' +${penerbangan.destination}"></h3>
+			<h3 th:text="'time ' +${penerbangan.time}"></h3>	</body>
+</html>

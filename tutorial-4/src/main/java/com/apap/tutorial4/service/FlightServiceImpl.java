@@ -23,6 +23,15 @@ public class FlightServiceImpl implements FlightService  {
 		// TODO Auto-generated method stub
 		return flightDb.findByFlightNumber(flightNumber);
 	}
+
+	@Override
+	public void deleteFlight(FlightModel flight) {
+		// TODO Auto-generated method stub
+		flightDb.delete(flight);
+		
+	}
+	
+	
 	
 	
 }

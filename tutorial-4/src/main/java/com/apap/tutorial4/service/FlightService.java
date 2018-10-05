@@ -6,4 +6,6 @@ public interface FlightService {
 	void addFlight (FlightModel flight);
 	
 	FlightModel getFlightByFlightNumber(String flightNumber);
+	
+	void deleteFlight (FlightModel flight);
 }

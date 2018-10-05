@@ -54,15 +54,17 @@ public class PilotController {
 	@RequestMapping(value = "/pilot/view", method = RequestMethod.GET)
 	public String view(@RequestParam("licenseNumber") String licenseNumber, Model model) {
 		PilotModel archive = pilotService.getPilotDetailByLicenseNumber(licenseNumber);
-		if(archive == null) {
-			String empty = "License tidak ditemukan";
-			model.addAttribute("flightPilot", empty);
-		}else {
-			model.addAttribute("pilot", archive);
-			List<FlightModel> pilotFlights = archive.getPilotFlight();	
-			model.addAttribute("flightPilot", pilotFlights);
-		}
+		List<FlightModel> pilotFlights = archive.getPilotFlight();	
+		model.addAttribute("flightPilot", pilotFlights);
+		model.addAttribute("pilot", archive);
 		return "view-pilot";
+	}
+	
+	@RequestMapping(value = "/pilot/delete/{licenseNumber}", method=RequestMethod.GET)
+	private String deletePilot(@PathVariable(value="licenseNumber") String licenseNumber, Model model) {
+		PilotModel pilot = pilotService.getPilotDetailByLicenseNumber(licenseNumber);
+		pilotService.deletePilot(pilot);
+		return "delete";
 	}
 	
 	
