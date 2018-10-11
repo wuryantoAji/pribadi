@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-	<head>
-		<title>Home</title>
-		
+	<head>		
 		<head th:fragment="css">
 			<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
 		</head>
@@ -13,8 +11,8 @@
 	</head>
 	
 	<body>
-		<nav th:fragment="navbar" class="navbar navbar-expand-lg navbar-dark bg-dark">
-			<a class="navbar-brand" href="#">APAP</a>
+		<nav th:fragment="navbar(header)" class="navbar navbar-expand-lg navbar-dark bg-dark">
+			<a class="navbar-brand" href="#" th:text="${header}"></a>
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav mr-auto">
 					<li class="nav-item active">

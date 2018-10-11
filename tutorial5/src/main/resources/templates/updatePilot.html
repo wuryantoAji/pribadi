@@ -8,7 +8,7 @@
 </head>
 
 <body>
-	<nav th:replace="fragments/fragment :: navbar"></nav>
+	<nav th:replace="fragments/fragment :: navbar('Update Pilot')"></nav>
 	<h3>Update Pilot</h3>
 	
 	<form th:action="@{/pilot/update}" th:object="${pilot}" method = "POST">
